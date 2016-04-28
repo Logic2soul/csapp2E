@@ -1,0 +1,4 @@
+void proc(union ele *up)
+{
+	up -> x = *(up -> next) - up -> y;
+}

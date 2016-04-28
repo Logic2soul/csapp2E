@@ -1,0 +1,4 @@
+A : row 5, 8(%ebp), s2; row 6, 16(%ebp), v; row 7, 12(%ebp), p;
+B : -4(%ebp), s2.sum; -8(%ebp), s2.prod; -12(%ebp), s1.v; 16(%ebp), s1.p; 20(%ebp), s2;
+C : 12(%ebp), 16(%ebp).......
+D : the return argument of structure set pointer to structure on 8(%ebp);
