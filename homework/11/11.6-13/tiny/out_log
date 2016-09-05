@@ -1,0 +1,65 @@
+GET / HTTP/1.1
+Host: 192.168.2.82
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:45.0) Gecko/20100101 Firefox/45.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+filename: ./home.html
+cgiargs: 
+
+HTTP/1.0 200 OK
+Server: Tiny Web Server
+Content-length: 210
+Content-type: text/html
+
+<html>
+<p><b>hello from tiny web server!</b></p>
+<p>U can add 2 numbers here:</p>
+<a href="http://192.168.2.82/adder.html">adder</a>
+<p>watch video here:</p>
+<a href="http://192.168.2.82/1.mp4">MP4</a>
+</html>
+GET /adder.html HTTP/1.1
+Host: 192.168.2.82
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:45.0) Gecko/20100101 Firefox/45.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://192.168.2.82/
+Connection: keep-alive
+
+filename: ./adder.html
+cgiargs: 
+
+HTTP/1.0 200 OK
+Server: Tiny Web Server
+Content-length: 327
+Content-type: text/html
+
+<html>
+<body>
+
+<form action="/cgi-bin/adder" method="post">
+<p>Value1: <input type="text" name="arg1" /></p>
+<p>Value2: <input type="text" name="arg2" /></p>
+<input type="submit" value="Submit" />
+</form>
+
+<p>请单击确认按钮， 输入内容会发送到服务器上名为"form_action.asp"的页面。</p>
+
+</body>
+</html>
+POST /cgi-bin/adder HTTP/1.1
+Host: 192.168.2.82
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:45.0) Gecko/20100101 Firefox/45.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://192.168.2.82/adder.html
+Connection: keep-alive
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 15
+
+arg1=20&arg2=30
